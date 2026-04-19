@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Sora:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Sora', ui-sans-serif, system-ui;
+  --font-display: 'Rajdhani', ui-sans-serif, system-ui;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg, #020617 0%, #0b1120 100%);
+  color: #f8fafc;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@keyframes stepGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(232, 121, 249, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(232, 121, 249, 0.35);
+  }
+}
+
+.pipeline-step {
+  min-width: 132px;
+  transition: all 260ms ease;
+}
+
+.pipeline-step.active {
+  animation: stepGlow 1.2s ease-in-out infinite;
+}
+
+.pipeline-step.done {
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.22);
+}
+
+.pipeline-arrow {
+  color: #64748b;
+  transition: color 260ms ease, text-shadow 260ms ease;
+}
+
+.pipeline-arrow.active {
+  color: #e879f9;
+  text-shadow: 0 0 10px rgba(232, 121, 249, 0.6);
+}
+
+.pipeline-arrow.completed {
+  color: #22d3ee;
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.55);
+}
+
+.result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(6, 182, 212, 0.16);
+  border-color: rgba(34, 211, 238, 0.6);
+}
